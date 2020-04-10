@@ -22,6 +22,7 @@
 #pragma once
 //Static class, we only need one
 #include <vector>
+#include <string>
 
 namespace BookEngine
 {
