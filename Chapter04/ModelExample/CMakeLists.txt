@@ -2,13 +2,18 @@ cmake_minimum_required(VERSION 3.0)
 
 project(ModelExample)
 
-file(GLOB SOURCES ./*.cpp ./*/*.cpp ./*/*/*.cpp ./*/*/*/*.cpp ./*.h ./*/*.h ./*/*/*.h ./*/*/*/*.h)
+set(SOURCES
+App.cpp
+App.h
+GamePlayScreen.cpp
+GamePlayScreen.h
+Main.cpp
+)
 
-
-include_directories(${CMAKE_SOURCE_DIR})
-include_directories(${CMAKE_SOURCE_DIR}/include)
-link_directories(${CMAKE_SOURCE_DIR})
-link_directories(${CMAKE_SOURCE_DIR}/lib/Windows/x86)
+include_directories(${CH04_DIR})
+include_directories(${CH04_DIR}/include)
+link_directories(${CMAKE_CURRENT_BINARY_DIR})
+link_directories(${CH04_DIR}/lib/Windows/x86)
 
 
 add_executable(ModelExample ${SOURCES})
@@ -16,17 +21,17 @@ add_executable(ModelExample ${SOURCES})
 target_link_libraries(ModelExample debug BookEngine)
 target_link_libraries(ModelExample optimized BookEngine)
 
-file(COPY "${CMAKE_SOURCE_DIR}/lib/Windows/x86/Debug/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Debug/" FILES_MATCHING PATTERN "*.dll")
-file(COPY "${CMAKE_SOURCE_DIR}/BookEngine/Debug/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Debug/" FILES_MATCHING PATTERN "*.dll")
+file(COPY "${CH04_DIR}/lib/Windows/x86/Debug/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Debug/" FILES_MATCHING PATTERN "*.dll")
+#file(COPY "${CH04_DIR}/BookEngine/Debug/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Debug/" FILES_MATCHING PATTERN "*.dll")
 
-file(COPY "${CMAKE_SOURCE_DIR}/lib/Windows/x86/Release/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/" FILES_MATCHING PATTERN "*.dll")
-file(COPY "${CMAKE_SOURCE_DIR}/BookEngine/Release/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/" FILES_MATCHING PATTERN "*.dll")
+file(COPY "${CH04_DIR}/lib/Windows/x86/Release/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/" FILES_MATCHING PATTERN "*.dll")
+#file(COPY "${CH04_DIR}/BookEngine/Release/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/" FILES_MATCHING PATTERN "*.dll")
 
-file(COPY "${CMAKE_SOURCE_DIR}/Textures" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
-#file(COPY "${CMAKE_SOURCE_DIR}/Textures/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/")
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/Textures" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+#file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/Textures/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/")
 
-#file(COPY "${CMAKE_SOURCE_DIR}/Shaders" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
-#file(COPY "${CMAKE_SOURCE_DIR}/Shaders/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/")
+#file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/Shaders" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+#file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/Shaders/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/")
 
-file(COPY "${CMAKE_SOURCE_DIR}/Meshes" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
-#file(COPY "${CMAKE_SOURCE_DIR}/Meshes/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/")
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/Meshes" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+#file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/Meshes/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Release/")

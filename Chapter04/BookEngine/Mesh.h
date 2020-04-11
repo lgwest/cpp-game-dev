@@ -20,6 +20,7 @@
     OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #pragma once
+#include <string>
 // Include GLEW
 #include <GL/glew.h>
 #include "GLTexture.h"

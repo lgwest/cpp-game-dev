@@ -20,6 +20,7 @@
     OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #pragma once
+#include <string>
 #include <map>
 #include "GLTexture.h"
 
