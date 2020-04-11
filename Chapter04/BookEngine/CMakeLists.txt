@@ -66,8 +66,8 @@ Window.h
 )
 
 
-include_directories(${CH04_DIR}/include)
-link_directories(${CH04_DIR}/lib/Windows/x86)
+include_directories(${CHAP_SRC_DIR}/include)
+link_directories(${CHAP_SRC_DIR}/lib/Windows/x86)
 
 # To build shared libraries in Windows, we set CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS to TRUE
 # See https://cmake.org/cmake/help/v3.4/variable/CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS.html
